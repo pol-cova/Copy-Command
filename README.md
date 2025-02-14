@@ -34,8 +34,16 @@ graph TD;
 
 ## 🚀 How to Run
 ### 1️⃣ Compile the program
+
+**For C:**
 ```sh
-gcc -o copy copy.c
+gcc copy.c -o copy
+```
+**For Rust:**
+```sh
+cd copy
+cargo build --release
+mv target/release/copy .
 ```
 
 ### 2️⃣ Run the command
@@ -44,6 +52,21 @@ gcc -o copy copy.c
 ```
 
 Replace `source.txt` with the file you want to copy and `destination.txt` with the output file.
+
+### 3️⃣ Option: Move the binary to a system path
+Once the binary is built, move it to a directory that is included in your system's `$PATH`, such as `/usr/local/bin`:
+```sh
+sudo mv copy /usr/local/bin/
+sudo chmod +x /usr/local/bin/copy
+```
+📌 **Explanation:**
+
+- `mv copy /usr/local/bin/` → Moves the binary to a globally accessible location.
+- `chmod +x /usr/local/bin/copy` → Ensures it's executable.
+Now you can run the command from any directory.
+```sh
+copy file1.txt file2.txt
+```
 
 ## 🛠 Error Handling
 - If the source file **doesn’t exist**, the program exits with an error.
